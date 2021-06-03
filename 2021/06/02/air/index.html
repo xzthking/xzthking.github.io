@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="air, XzthKing‘s Bolog">
+    <meta name="keywords" content="空气质量数据分析, XzthKing‘s Bolog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>air | XzthKing‘s Bolog</title>
+    <title>空气质量数据分析 | XzthKing‘s Bolog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">air</h1>
+                    <h1 class="description center-align post-title">空气质量数据分析</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Hadoop-Linux-Java/">
+                                <span class="chip bg-color">Hadoop,Linux,Java</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -492,7 +496,7 @@
 <li> 启动Hadoop</li>
 </ul>
 <hr>
-<h4 id="HDFS设置文件上传"><a href="#HDFS设置文件上传" class="headerlink" title="HDFS设置文件上传"></a>HDFS设置文件上传</h4><p>本次需要的数据文件 —-&gt;<br>  <a target="_blank" rel="noopener" href="https://xzthking.top/medias/data_air.rar" download>点击下载</a></p>
+<h4 id="HDFS设置文件上传"><a href="#HDFS设置文件上传" class="headerlink" title="HDFS设置文件上传"></a>HDFS设置文件上传</h4><p>本次需要的数据文件 —-&gt;<br>  <a target="_blank" rel="noopener" href="http://www.xzthking.top/medias/data_air.zip" download>点击下载</a></p>
 <hr>
 <ul>
 <li>先在hadoop创建文件夹</li>
@@ -518,14 +522,14 @@
 </ul>
 <h3 id="raindata-java"><a href="#raindata-java" class="headerlink" title="raindata.java"></a>raindata.java</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">import org.apache.hadoop.conf.Configuration;</span><br><span class="line">import org.apache.hadoop.fs.Path;</span><br><span class="line">import org.apache.hadoop.io.LongWritable;</span><br><span class="line">import org.apache.hadoop.io.Text;</span><br><span class="line">import org.apache.hadoop.mapreduce.Job;</span><br><span class="line">import org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line">import org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line">import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line">import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"></span><br><span class="line">public class raindata &#123;</span><br><span class="line"></span><br><span class="line">    public static class DCMapper extends Mapper&lt;LongWritable, Text, Text, Text&gt;&#123;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        protected void map(LongWritable key, Text value, Context context)</span><br><span class="line">                throws IOException, InterruptedException &#123;</span><br><span class="line">            //接收数据</span><br><span class="line">            String line = value.toString();</span><br><span class="line">            //以空格为分隔符切割数据</span><br><span class="line">            String[] fields = line.split(&quot; &quot;);</span><br><span class="line">            //point为监测点</span><br><span class="line">            String point = fields[1];</span><br><span class="line">            //date_rain为RTime的年月日和RCount</span><br><span class="line">            String date_rain = fields[2]+&quot; &quot;+fields[3]+&quot; &quot;+fields[4]+&quot; &quot;+fields[6];</span><br><span class="line">            //point作为key，date_rain作为value进行传输</span><br><span class="line">            context.write(new Text(point), new Text(date_rain));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static class DCReducer extends Reducer&lt;Text, Text, Text, Text&gt;&#123;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        protected void reduce(Text key, Iterable&lt;Text&gt; values, Context context)</span><br><span class="line">                throws IOException, InterruptedException &#123;</span><br><span class="line">            double rain_max = 0;</span><br><span class="line">            String output = &quot;&quot;;</span><br><span class="line">            //将date_rain里面的RCount抽取出来，判断得到最大值</span><br><span class="line">            for(Text bean : values)&#123;</span><br><span class="line">                String date_rain = bean.toString();</span><br><span class="line">                String[] fields = date_rain.split(&quot; &quot;);</span><br><span class="line">                double rain = Double.parseDouble(fields[3]);</span><br><span class="line">                if (rain&gt;rain_max)</span><br><span class="line"></span><br><span class="line">                &#123;</span><br><span class="line">                    rain_max = rain;</span><br><span class="line">                    //output位RTime的年月日和RCount的最大值</span><br><span class="line">                    output = fields[0]+&quot;/&quot;+fields[1]+&quot;/&quot;+fields[2]+&quot; &quot;+rain_max;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            //输出map中的point和output</span><br><span class="line">            context.write(key, new Text(output));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        Configuration conf = new Configuration();</span><br><span class="line">        Job job = Job.getInstance(conf);</span><br><span class="line"></span><br><span class="line">        job.setJarByClass(raindata.class);</span><br><span class="line"></span><br><span class="line">        job.setMapperClass(DCMapper.class);</span><br><span class="line">        job.setMapOutputKeyClass(Text.class);</span><br><span class="line">        job.setMapOutputValueClass(Text.class);</span><br><span class="line">        FileInputFormat.setInputPaths(job, new Path(args[0]));</span><br><span class="line"></span><br><span class="line">        job.setReducerClass(DCReducer.class);</span><br><span class="line">        job.setOutputKeyClass(Text.class);</span><br><span class="line">        job.setOutputValueClass(Text.class);</span><br><span class="line">        FileOutputFormat.setOutputPath(job, new Path(args[1]));</span><br><span class="line"></span><br><span class="line">        job.waitForCompletion(true);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>将代码打包成 <code>air.jar</code></li>
+<li>将代码打包成 <code>ylitech_air.jar</code></li>
 </ul>
 <hr>
 <h4 id="运行程序实现数据处理"><a href="#运行程序实现数据处理" class="headerlink" title="运行程序实现数据处理"></a>运行程序实现数据处理</h4><ul>
 <li><p>在air.jar包所在的目录打开命令符界面</p>
 </li>
 <li><blockquote>
-<p>hadoop jar air.jar  air/air /air/data_air/ /air/air_out/</p>
+<p>hadoop jar ylitech_air.jar  ylitech_air/air /air/data_air/ /air/air_out/</p>
 </blockquote>
 </li>
 <li><p>代码解释</p>
@@ -604,7 +608,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Hadoop-Linux-Java/">
+                                    <span class="chip bg-color">Hadoop,Linux,Java</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -782,9 +790,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="大数据技术与应用比赛---Hadoop全分布部署">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">大数据技术与应用比赛---Hadoop全分布部署</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -806,6 +814,14 @@
                     </div>
                 </div>
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hadoop-Linux-Java/">
+                        <span class="chip bg-color">Hadoop,Linux,Java</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -819,9 +835,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="air">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="空气质量数据分析">
                         
-                        <span class="card-title">air</span>
+                        <span class="card-title">空气质量数据分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -843,6 +859,14 @@
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hadoop-Linux-Java/">
+                        <span class="chip bg-color">Hadoop,Linux,Java</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
