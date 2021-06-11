@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="大数据技术与应用比赛---Hadoop全分布部署, XzthKing‘s Bolog">
+    <meta name="keywords" content="javaGUI练习, XzthKing‘s Bolog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>大数据技术与应用比赛---Hadoop全分布部署 | XzthKing‘s Bolog</title>
+    <title>javaGUI练习 | XzthKing‘s Bolog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">大数据技术与应用比赛---Hadoop全分布部署</h1>
+                    <h1 class="description center-align post-title">javaGUI练习</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hadoop-Linux-Java/">
-                                <span class="chip bg-color">Hadoop Linux Java</span>
+                            <a href="/tags/JAVA/">
+                                <span class="chip bg-color">JAVA</span>
                             </a>
                         
                     </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-01
+                    2021-06-11
                 </div>
                 
 
@@ -468,237 +468,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="大数据技术与应用比赛2021模拟题"><a href="#大数据技术与应用比赛2021模拟题" class="headerlink" title="大数据技术与应用比赛2021模拟题"></a>大数据技术与应用比赛2021模拟题</h2><h4 id="一-Hadoop全分布部署"><a href="#一-Hadoop全分布部署" class="headerlink" title="一. Hadoop全分布部署"></a>一. Hadoop全分布部署</h4><hr>
-<ul>
-<li>技术栈：Linux基本使用 . Hadoop基本使用</li>
-<li>难度：&#9733;</li>
-</ul>
-<hr>
-<hr>
-<ul>
-<li>本次实验全程在CAS虚拟机进行，与在VM虚拟机略有不同，<code>仅供参考</code>。</li>
-<li>本次默认使用的三台Linux的IP地址分别为:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">master 192.158.1.251</span><br><span class="line">slaver1 192.168.1.252</span><br><span class="line">slaver2 192.168.1.253</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h4 id="1-IP设置"><a href="#1-IP设置" class="headerlink" title="1. IP设置"></a>1. IP设置</h4><ul>
-<li>使用  <code>ifconfig</code> 进行IP查询</li>
-<li>设置IP（每一台都设置）</li>
-<li><blockquote>
-<p>vim /etc/sysconfig/network-scripts/ifcfg-eth0</p>
-</blockquote>
-</li>
-<li>修改如下内容：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IPADDR=192.168.1.x  `(x为修改的ip)`</span><br><span class="line">GATEWAY=192.168.1.254</span><br><span class="line">NETMASK=255.255.255.0</span><br></pre></td></tr></table></figure></li>
-<li>修改IP映射</li>
-<li><blockquote>
-<p>vim /ect/hosts</p>
-</blockquote>
-</li>
-<li>添加IP映射(三台Linux都要设置)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.158.1.251 master</span><br><span class="line">192.168.1.252 slaver1</span><br><span class="line">192.168.1.253 slaver2</span><br></pre></td></tr></table></figure></li>
-<li>使用<code>reboot</code>重启IP才会生效.</li>
-<li><code>该内容仅为训练参考，在比赛中可直接使用给定的IP.</code></li>
-</ul>
-<hr>
-<hr>
-<h4 id="2-配置环境变量"><a href="#2-配置环境变量" class="headerlink" title="2.配置环境变量"></a>2.配置环境变量</h4><ul>
-<li>&#10084; <code>在master上输入</code> &#10084;</li>
-</ul>
-<ol>
-<li>将/h3cu目录下面的JDK和Hadoop解压到/usr/local/src目录下面</li>
-</ol>
-<ul>
-<li><blockquote>
-<p>tar -zxvf hadoop-2.6.0.tar.gz -C /usr/local/src</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>tar -zxvf jdk-8u144-linux-x64.tar.gz -C /usr/local/src</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<ol start="2">
-<li>设置JDK和Hadoop环境变量，并且只对当前root用户生效</li>
-</ol>
-<ul>
-<li>配置环境变量</li>
-<li><blockquote>
-<p>vi /root/.bash_profile</p>
-</blockquote>
-</li>
-<li>添加如下变量：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/src/jdk1.8.0_144</span><br><span class="line">export PATH=:$JAVA_HOME/bin:$PATH</span><br><span class="line">export HADOOP_HOME=/usr/local/src/hadoop-2.6.0</span><br><span class="line">export PATH=:$HADOOP_HOME/bin:$PATH</span><br></pre></td></tr></table></figure></li>
-<li>使环境变量生效</li>
-<li><blockquote>
-<p>source /root/.bash_profile</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<ol start="3">
-<li>从master复制上面步骤配置的JDK环境变量文件到slavel、slave2节点</li>
-</ol>
-<ul>
-<li><blockquote>
-<p>scp -r /root/.bash_profile <a href="mailto:&#x72;&#111;&#x6f;&#116;&#64;&#x31;&#x39;&#x32;&#x2e;&#49;&#54;&#56;&#46;&#49;&#46;&#50;&#x35;&#50;">&#x72;&#111;&#x6f;&#116;&#64;&#x31;&#x39;&#x32;&#x2e;&#49;&#54;&#56;&#46;&#49;&#46;&#50;&#x35;&#50;</a>:/root/.bash_profile</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>scp -r /root/.bash_profile <a href="mailto:&#114;&#111;&#111;&#x74;&#64;&#49;&#57;&#x32;&#x2e;&#49;&#x36;&#x38;&#46;&#x31;&#46;&#x32;&#x35;&#x33;">&#114;&#111;&#111;&#x74;&#64;&#49;&#57;&#x32;&#x2e;&#49;&#x36;&#x38;&#46;&#x31;&#46;&#x32;&#x35;&#x33;</a>:/root/.bash_profile</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>scp -r /usr/local/src/jdk1.8.0_144 <a href="mailto:&#x72;&#111;&#111;&#116;&#x40;&#x31;&#57;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#x31;&#46;&#x32;&#x35;&#50;">&#x72;&#111;&#111;&#116;&#x40;&#x31;&#57;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#x31;&#46;&#x32;&#x35;&#50;</a>:/usr/local/src/</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>scp -r /usr/local/src/jdk1.8.0_144 <a href="mailto:&#114;&#x6f;&#x6f;&#x74;&#x40;&#49;&#57;&#x32;&#x2e;&#49;&#x36;&#56;&#x2e;&#x31;&#x2e;&#50;&#x35;&#51;">&#114;&#x6f;&#x6f;&#x74;&#x40;&#49;&#57;&#x32;&#x2e;&#49;&#x36;&#56;&#x2e;&#x31;&#x2e;&#50;&#x35;&#51;</a>:/usr/local/src/</p>
-</blockquote>
-</li>
-<li><p>使环境变量生效(slave1和slave2)</p>
-</li>
-<li><blockquote>
-<p>source /root/.bash_profile</p>
-</blockquote>
-</li>
-<li><p><code>jps</code> 查看java进程是否存在</p>
-</li>
-</ul>
-<hr>
-<h4 id="3-配置ssh免密登录到slave1"><a href="#3-配置ssh免密登录到slave1" class="headerlink" title="3. 配置ssh免密登录到slave1"></a>3. 配置ssh免密登录到slave1</h4><ul>
-<li>1.生成公钥（id_ras.pub）和私钥(id_ras)</li>
-<li></li>
-<li><blockquote>
-<p>ssh-keygen -t rsa </p>
-</blockquote>
-</li>
-<li><code>master和slave1都要输入,然后一直回车就行了</code></li>
-<li>2.发送给主机公钥 </li>
-<li><blockquote>
-<p>ssh-copy-id 192.168.1.251</p>
-</blockquote>
-</li>
-<li><code>master和slave1都要输入</code></li>
-<li>3.远程拷贝公钥</li>
-<li><blockquote>
-<p>scp /root/.ssh/authorized_keys 192.168.1.252:/root/.ssh</p>
-</blockquote>
-</li>
-<li><code>只在master上输入</code></li>
-<li>4.验证</li>
-<li><blockquote>
-<p>ssh slave1 (连接)</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>exit (退出)</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h4 id="4-修改hadoop相关文件"><a href="#4-修改hadoop相关文件" class="headerlink" title="4.修改hadoop相关文件"></a>4.修改hadoop相关文件</h4><ul>
-<li>1.配置hadoop-env.sh  </li>
-<li><blockquote>
-<p>cd /usr/local/src/hadoop-2.6.0/etc/hadoop</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>vi hadoop-env.sh</p>
-</blockquote>
-</li>
-<li>找到如下内容进行修改</li>
-<li><blockquote>
-<p>export JAVA_HOME=/usr/local/src/jdk1.8.0_144</p>
-</blockquote>
-</li>
-<li>2.配置core-site.xml</li>
-<li><blockquote>
-<p>vi core-site.xml</p>
-</blockquote>
-</li>
-<li>添加如下内容：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;        </span><br><span class="line">  &lt;property&gt;                </span><br><span class="line">    &lt;name&gt;fs.defaultFS&lt;/name&gt;                				</span><br><span class="line">    &lt;value&gt;hdfs://master:9000&lt;/value&gt;       </span><br><span class="line">  &lt;/property&gt;       </span><br><span class="line">  &lt;property&gt;               </span><br><span class="line">    &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;                					</span><br><span class="line">    &lt;value&gt;/usr/local/src/hadoop-2.6.0/tmp/mydata&lt;/value&gt;        </span><br><span class="line">  &lt;/property&gt;	    </span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></li>
-<li>3.配置yarn-site.xml</li>
-<li><blockquote>
-<p> vi yarn-site.xml</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;       </span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;!--nomenodeManager获取数据的方式是shuffle--&gt;                </span><br><span class="line">    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;                		</span><br><span class="line">    &lt;value&gt;mapreduce_shuffle&lt;/value&gt;        </span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">      &lt;value&gt;master:8088&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></li>
-<li>4.配置mapred-site.xml</li>
-<li><code>先复制mapreduce模板</code></li>
-<li><blockquote>
-<p>cp mapred-site.xml.template mapred-site.xml </p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>vi mapred-site.xml</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;!--告诉hadoop以后MR(Map/Reduce)运行在YARN 上--&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">    &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></li>
-<li>5.配置hdfs-site.xml</li>
-<li><blockquote>
-<p>vi hdfs-site.xml</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--用来指定hdfs中namenode的存储位置 --&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;/usr/local/src/hadoop-2.6.0/tmp/name&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;!--用来指定hdfs中datanode的存储位置 --&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.datanode.name.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;/usr/local/src/hadoop-2.6.0/tmp/data&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li>6.修改slaves文件</li>
-<li><blockquote>
-<p>vi slaves</p>
-</blockquote>
-</li>
-<li>添加如下(IP地址):<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.158.1.251  </span><br><span class="line">192.168.1.252  </span><br><span class="line">192.168.1.253  </span><br></pre></td></tr></table></figure></li>
-<li>7.创建文件夹</li>
-<li><blockquote>
-<p>cd /usr/local/src/hadoop-2.6.0</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>mdkir tmp </p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>cd tmp</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>mkdir mydata</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>mkdir data</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>mkdir name</p>
-</blockquote>
-</li>
-<li>8.拷贝hadoop到slave1节点（这个是题目指定的）</li>
-<li><blockquote>
-<p>scp -r /usr/local/src/hadoop-2.6.0 root@slave1:/usr/local/src/</p>
-</blockquote>
-</li>
-<li>9.格式化namenode并且启动集群</li>
-<li><blockquote>
-<p>cd /usr/local/src/hadoop-2.6.0/bin</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>hadoop namenode -format</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>cd /usr/local/src/hadoop-2.6.0/sbin</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>start-all.sh</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h4 id="5-查看master和slave1的jps进程"><a href="#5-查看master和slave1的jps进程" class="headerlink" title="5.查看master和slave1的jps进程"></a>5.查看master和slave1的jps进程</h4><ul>
-<li><blockquote>
-<p><code>jps</code></p>
-</blockquote>
-</li>
-</ul>
-<hr>
+                <h2 id="1-8-11"><a href="#1-8-11" class="headerlink" title="1. 8-11"></a>1. 8-11</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">import javax.swing.*;</span><br><span class="line">import java.awt.*;</span><br><span class="line">import java.awt.event.ActionEvent;</span><br><span class="line">import java.awt.event.ActionListener;</span><br><span class="line"></span><br><span class="line">public class Demo8_11 &#123;</span><br><span class="line">    public static void createAndShowGUI() &#123;</span><br><span class="line">        JFrame f = new JFrame(&quot;ok&quot;);</span><br><span class="line">        f.setLayout(new BorderLayout());</span><br><span class="line">        f.setSize(400,300);</span><br><span class="line">        f.setLocation(300,200);</span><br><span class="line">        f.setVisible(true);</span><br><span class="line"></span><br><span class="line">        JTextArea showArea = new JTextArea(12,34);</span><br><span class="line">        JScrollPane scrollPane = new JScrollPane(showArea);</span><br><span class="line">        showArea.setEditable(false);</span><br><span class="line"></span><br><span class="line">        JTextField inputField = new JTextField(20);</span><br><span class="line">        JButton btn = new JButton(&quot;发送&quot;);</span><br><span class="line">             btn.addActionListener(new ActionListener() &#123;</span><br><span class="line">                 @Override</span><br><span class="line">                 public void actionPerformed(ActionEvent e) &#123;</span><br><span class="line">                     String countent = inputField.getText();</span><br><span class="line">                     if (countent !=null &amp;&amp; !countent.trim().equals(&quot;&quot;)) &#123;</span><br><span class="line">                         showArea.append(countent+&quot;\n&quot;);</span><br><span class="line">                     &#125; else &#123;</span><br><span class="line">                         showArea.append(&quot;输入不能为空&quot;+&quot;\n&quot;);</span><br><span class="line">                     &#125;</span><br><span class="line">                     inputField.setText(&quot;&quot;);</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;);</span><br><span class="line"></span><br><span class="line">             JPanel panel = new JPanel();</span><br><span class="line">             JLabel label=new JLabel(&quot;聊天信息&quot;);</span><br><span class="line">             panel.add(label);</span><br><span class="line">             panel.add(inputField);</span><br><span class="line">             panel.add(btn);</span><br><span class="line">             f.add(scrollPane,BorderLayout.PAGE_START);</span><br><span class="line">             f.add(panel,BorderLayout.PAGE_END);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SwingUtilities.invokeLater(Demo8_11::createAndShowGUI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-8-12"><a href="#2-8-12" class="headerlink" title="2. 8-12"></a>2. 8-12</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import javax.swing.*;</span><br><span class="line">import java.awt.*;</span><br><span class="line"></span><br><span class="line">public class Demo8_12 &#123;</span><br><span class="line">    private static void GUI()&#123;</span><br><span class="line">        JFrame f = new JFrame(&quot;标题&quot;);</span><br><span class="line">        f.setLayout(new BorderLayout());</span><br><span class="line">        f.setSize(400,300);</span><br><span class="line">        f.setLocation(300,200);</span><br><span class="line">        f.setVisible(true);</span><br><span class="line">        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">        JLabel label = new JLabel();</span><br><span class="line">        ImageIcon icon = new ImageIcon(&quot;图片&quot;);</span><br><span class="line">        Image img = icon.getImage();</span><br><span class="line">        img = img.getScaledInstance(300,100,Image.SCALE_DEFAULT);</span><br><span class="line">        icon.setImage(img);</span><br><span class="line">        label.setIcon(icon);</span><br><span class="line"></span><br><span class="line">        JPanel panel = new JPanel();</span><br><span class="line">        JLabel label2 = new JLabel(&quot;hello&quot;,JLabel.CENTER);</span><br><span class="line">        panel.add(label2);</span><br><span class="line"></span><br><span class="line">        f.add(label,BorderLayout.PAGE_START);</span><br><span class="line">        f.add(panel,BorderLayout.PAGE_END);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SwingUtilities.invokeLater(Demo8_12::GUI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-8-13"><a href="#3-8-13" class="headerlink" title="3. 8-13"></a>3. 8-13</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">import javax.swing.*;</span><br><span class="line">import java.awt.*;</span><br><span class="line">import java.awt.event.ActionEvent;</span><br><span class="line">import java.awt.event.ActionListener;</span><br><span class="line"></span><br><span class="line">public class Demo8_13 &#123;</span><br><span class="line">    private static  void GUI()&#123;</span><br><span class="line">        JFrame f = new JFrame();</span><br><span class="line">        f.setLayout(new BorderLayout());</span><br><span class="line">        f.setSize(400,300);</span><br><span class="line">        f.setLocation(300,200);</span><br><span class="line">        f.setVisible(true);</span><br><span class="line">        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">        JLabel lable = new JLabel(&quot;hello&quot;,JLabel.CENTER);</span><br><span class="line">        lable.setFont(new Font(&quot;宋体&quot;,Font.PLAIN,20));</span><br><span class="line"></span><br><span class="line">        JPanel panel = new JPanel();</span><br><span class="line">        JCheckBox a = new JCheckBox(&quot;ITALIC&quot;);</span><br><span class="line">        JCheckBox b = new JCheckBox(&quot;BOLD&quot;);</span><br><span class="line"></span><br><span class="line">        ActionListener listener = new ActionListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void actionPerformed(ActionEvent e) &#123;</span><br><span class="line">                int c = 0;</span><br><span class="line">                if (b.isSelected())</span><br><span class="line">                    c +=Font.BOLD;</span><br><span class="line">                if (a.isSelected())</span><br><span class="line">                    c +=Font.ITALIC;</span><br><span class="line">                lable.setFont(new Font(&quot;宋体&quot;,c,20));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        a.addActionListener(listener);</span><br><span class="line">        b.addActionListener(listener);</span><br><span class="line"></span><br><span class="line">        panel.add(a);</span><br><span class="line">        panel.add(b);</span><br><span class="line"></span><br><span class="line">        f.add(lable);</span><br><span class="line">        f.add(panel,BorderLayout.PAGE_END);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SwingUtilities.invokeLater(Demo8_13::GUI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-8-14"><a href="#4-8-14" class="headerlink" title="4. 8-14"></a>4. 8-14</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">import javax.swing.*;</span><br><span class="line">import java.awt.*;</span><br><span class="line">import java.awt.event.ActionEvent;</span><br><span class="line">import java.awt.event.ActionListener;</span><br><span class="line"></span><br><span class="line">public class Demo8_14 &#123;</span><br><span class="line">    private static void GUI()&#123;</span><br><span class="line">        JFrame f = new JFrame(&quot;这是个开头&quot;);</span><br><span class="line">        f.setLayout(new BorderLayout());</span><br><span class="line">        f.setSize(400,300);</span><br><span class="line">        f.setLocation(300,200);</span><br><span class="line">        f.setVisible(true);</span><br><span class="line">        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">        JLabel label = new JLabel(&quot;hello wold&quot;,JLabel.CENTER);</span><br><span class="line">        label.setFont(new Font(&quot;宋体&quot;,Font.PLAIN,20));</span><br><span class="line"></span><br><span class="line">        JPanel panel = new JPanel();</span><br><span class="line">        ButtonGroup group = new ButtonGroup();</span><br><span class="line">        JRadioButton a = new JRadioButton(&quot;ITALIC&quot;);</span><br><span class="line">        JRadioButton b = new JRadioButton(&quot;BOID&quot;);</span><br><span class="line"></span><br><span class="line">        group.add(a);</span><br><span class="line">        group.add(b);</span><br><span class="line"></span><br><span class="line">        ActionListener listener = new ActionListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void actionPerformed(ActionEvent e) &#123;</span><br><span class="line">                int c = 0;</span><br><span class="line">                if (b.isSelected())</span><br><span class="line">                    c +=Font.BOLD;</span><br><span class="line">                if (a.isSelected())</span><br><span class="line">                    c +=Font.ITALIC;</span><br><span class="line">                label.setFont(new Font(&quot;宋体&quot;,c,20));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        a.addActionListener(listener);</span><br><span class="line">        b.addActionListener(listener);</span><br><span class="line"></span><br><span class="line">        panel.add(a);</span><br><span class="line">        panel.add(b);</span><br><span class="line"></span><br><span class="line">        f.add(label,BorderLayout.PAGE_START);</span><br><span class="line">        f.add(panel,BorderLayout.PAGE_END);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SwingUtilities.invokeLater(Demo8_14::GUI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-8-15"><a href="#5-8-15" class="headerlink" title="5. 8-15"></a>5. 8-15</h2><figure class="highlight plaintext"><figcaption><span>javax.swing.*;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">import java.awt.*;</span><br><span class="line">import java.awt.event.ActionEvent;</span><br><span class="line">import java.awt.event.ActionListener;</span><br><span class="line"></span><br><span class="line">public class Demo8_15 &#123;</span><br><span class="line">    private static void GUI()&#123;</span><br><span class="line">        JFrame f = new JFrame(&quot;复仇者联盟&quot;);</span><br><span class="line">        f.setLayout(new BorderLayout());</span><br><span class="line">        f.setSize(400,300);</span><br><span class="line">        f.setLocation(300,200);</span><br><span class="line">        f.setVisible(true);</span><br><span class="line">        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">        JPanel panel = new JPanel();</span><br><span class="line">        JComboBox&lt;String&gt;comboBox=new JComboBox&lt;&gt;();</span><br><span class="line">        comboBox.addItem(&quot;请选择你的城市&quot;);</span><br><span class="line">        comboBox.addItem(&quot;瓦坎达&quot;);</span><br><span class="line">        comboBox.addItem(&quot;死星&quot;);</span><br><span class="line">        comboBox.addItem(&quot;阿斯加德&quot;);</span><br><span class="line">        comboBox.addItem(&quot;九头蛇总部&quot;);</span><br><span class="line">        comboBox.addItem(&quot;纽约&quot;);</span><br><span class="line">        comboBox.addItem(&quot;亚特兰蒂斯&quot;);</span><br><span class="line"></span><br><span class="line">        JTextField textField = new JTextField(20);</span><br><span class="line"></span><br><span class="line">        ActionListener listener = new ActionListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void actionPerformed(ActionEvent e) &#123;</span><br><span class="line">                String item = (String) comboBox.getSelectedItem();</span><br><span class="line">                if (&quot;请选择你的城市&quot;.equals(item)) &#123;</span><br><span class="line">                    textField.setText(&quot;&quot;);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    textField.setText(&quot;您选择在【&quot;+item+&quot;】重生&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        comboBox.addActionListener(listener);</span><br><span class="line">        panel.add(comboBox);</span><br><span class="line">        panel.add(textField);</span><br><span class="line"></span><br><span class="line">        f.add(panel,BorderLayout.PAGE_START);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SwingUtilities.invokeLater(Demo8_15::GUI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="6-8-16"><a href="#6-8-16" class="headerlink" title="6. 8-16"></a>6. 8-16</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">import javax.swing.*;</span><br><span class="line">import java.awt.*;</span><br><span class="line">import java.awt.event.ActionEvent;</span><br><span class="line">import java.awt.event.ActionListener;</span><br><span class="line"></span><br><span class="line">public class Demo8_16 &#123;</span><br><span class="line">    private static void GUI()&#123;</span><br><span class="line">        JFrame f = new JFrame(&quot;标题&quot;);</span><br><span class="line">        f.setSize(500,300);</span><br><span class="line">        f.setLocation(300,200);</span><br><span class="line">        f.setVisible(true);</span><br><span class="line">        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">        JMenuBar menuBar = new JMenuBar();</span><br><span class="line"></span><br><span class="line">        JMenu menu1 = new JMenu(&quot;文件(F)&quot;);</span><br><span class="line">        JMenu menu2 = new JMenu(&quot;帮助(H)&quot;);</span><br><span class="line"></span><br><span class="line">        menuBar.add(menu1);</span><br><span class="line">        menuBar.add(menu2);</span><br><span class="line"></span><br><span class="line">        JMenuItem menuItem1 = new JMenuItem(&quot;新建(N)&quot;);</span><br><span class="line">        JMenuItem menuItem2 = new JMenuItem(&quot;退出(x)&quot;);</span><br><span class="line"></span><br><span class="line">        menu1.add(menuItem1);</span><br><span class="line">        menu1.addSeparator();</span><br><span class="line">        menu1.add(menuItem2);</span><br><span class="line"></span><br><span class="line">        menuItem1.addActionListener(new ActionListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void actionPerformed(ActionEvent e) &#123;</span><br><span class="line">                JDialog dialog = new JDialog(f,&quot;无标题也是一种标题&quot;,true);</span><br><span class="line">                dialog.setSize(400,200);</span><br><span class="line">                dialog.setLocation(300,200);</span><br><span class="line">                dialog.setVisible(true);</span><br><span class="line">                dialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        menuItem2.addActionListener(new ActionListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void actionPerformed(ActionEvent e) &#123;</span><br><span class="line">                System.exit(0);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        f.setJMenuBar(menuBar);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SwingUtilities.invokeLater(Demo8_16::GUI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="7-8-17"><a href="#7-8-17" class="headerlink" title="7. 8-17"></a>7. 8-17</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">import javax.swing.*;</span><br><span class="line">import java.awt.event.MouseAdapter;</span><br><span class="line">import java.awt.event.MouseEvent;</span><br><span class="line"></span><br><span class="line">public class Demo8_17 &#123;</span><br><span class="line">    private  static void   GUI()&#123;</span><br><span class="line">        JFrame f = new JFrame(&quot;右键刷新&quot;);</span><br><span class="line">        f.setSize(400,300);</span><br><span class="line">        f.setLocation(300,300);</span><br><span class="line">        f.setVisible(true);</span><br><span class="line">        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line">        JPopupMenu popupMenu = new JPopupMenu();</span><br><span class="line"></span><br><span class="line">        JMenuItem item1 = new JMenuItem(&quot;查看&quot;);</span><br><span class="line">        JMenuItem item2 = new JMenuItem(&quot;刷新&quot;);</span><br><span class="line"></span><br><span class="line">        popupMenu.add(item1);</span><br><span class="line">        popupMenu.addSeparator();</span><br><span class="line">        popupMenu.add(item2);</span><br><span class="line">        f.addMouseListener(new MouseAdapter() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void mouseClicked(MouseEvent e) &#123;</span><br><span class="line">                if (e.getButton() == MouseEvent.BUTTON3) &#123;</span><br><span class="line">                    popupMenu.show(e.getComponent(),e.getX(),e.getY());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SwingUtilities.invokeLater(Demo8_17::GUI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -725,7 +501,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/06/01/CAShadoop/">http://example.com/2021/06/01/CAShadoop/</a>
+                    <a href="http://example.com/2021/06/11/javaGUI%E7%BB%83%E4%B9%A0/">http://example.com/2021/06/11/javaGUI%E7%BB%83%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -763,8 +539,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hadoop-Linux-Java/">
-                                    <span class="chip bg-color">Hadoop Linux Java</span>
+                                <a href="/tags/JAVA/">
+                                    <span class="chip bg-color">JAVA</span>
                                 </a>
                             
                         </div>
@@ -936,9 +712,56 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/06/11/javaGUI%E7%BB%83%E4%B9%A0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="javaGUI练习">
+                        
+                        <span class="card-title">javaGUI练习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            XZTHE
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JAVA/">
+                        <span class="chip bg-color">JAVA</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/06/02/air/">
                     <div class="card-image">
@@ -956,53 +779,8 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-02
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            XZTHE
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hadoop-Linux-Java/">
-                        <span class="chip bg-color">Hadoop Linux Java</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/06/01/CAShadoop/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="大数据技术与应用比赛---Hadoop全分布部署">
-                        
-                        <span class="card-title">大数据技术与应用比赛---Hadoop全分布部署</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-02
                             </span>
                         <span class="publish-author">
                             
@@ -1012,7 +790,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
