@@ -1,1 +1,10 @@
 /* Here is your custom css styles. */
+@font-face{
+    font-family: 'pixels';
+    src: url('../diy-font/pixels.ttf');   
+}
+
+body {
+    font-family: 'pixels';
+}
+
