@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="空气质量数据分析, XzthKing&#39;s Bolog">
+    <meta name="keywords" content="Kafka基础, XzthKing&#39;s Bolog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>空气质量数据分析 | XzthKing&#39;s Bolog</title>
+    <title>Kafka基础 | XzthKing&#39;s Bolog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">空气质量数据分析</h1>
+                    <h1 class="description center-align post-title">Kafka基础</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hadoop-Linux-Java/">
-                                <span class="chip bg-color">Hadoop Linux Java</span>
+                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%BD%AF%E4%BB%B6/">
+                                <span class="chip bg-color">大数据软件</span>
                             </a>
                         
                     </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-02
+                    2021-11-11
                 </div>
                 
 
@@ -468,89 +468,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="大数据综合实战-空气质量数据分析"><a href="#大数据综合实战-空气质量数据分析" class="headerlink" title="大数据综合实战-空气质量数据分析"></a>大数据综合实战-空气质量数据分析</h1><hr>
-<ul>
-<li>技术要求：掌握Hadoop基本使用，Linux基本使用。</li>
-<li>前提：在ylitech平台(学校平台)，如果是VM虚拟机需要先将eclipse安装并且配置hadoop。</li>
-<li>账号：hadoop 密码：123456</li>
+                <h1 id="Kafka-基础"><a href="#Kafka-基础" class="headerlink" title="Kafka 基础"></a>Kafka 基础</h1><h2 id="配置kafka安装启动自带配置好的Zookeeper"><a href="#配置kafka安装启动自带配置好的Zookeeper" class="headerlink" title="配置kafka安装启动自带配置好的Zookeeper"></a>配置kafka安装启动自带配置好的Zookeeper</h2><ul>
+<li>版本 kafka-2.0.0-src.tgz</li>
 </ul>
-<hr>
-<h4 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h4><p>随着城市工业化的不断推进,城市空气污染越来越严重,至今已经变成了一个全球性的问题。并且空气污染是当前世界最主要的环境问题之一，对人类健康、工农业生产、动植物生长、社会财产和全球环境等都会造成很大的伤害。开展城市空气质量监测、数据分析能够全面地掌握城市空气污染源的排放数据和城市空气质量的等级分布状况,可以对影响城市空气质量的因素有着更加全面的了解和掌握,从而能够对城市空气污染进行有效的治理与预防。利用大数据数据分析技术,对空气质量数据进行了探索性分析。</p>
-<h2 id="实战部分"><a href="#实战部分" class="headerlink" title="实战部分"></a>实战部分</h2><h4 id="修改hosts映射并启动hadoop"><a href="#修改hosts映射并启动hadoop" class="headerlink" title="修改hosts映射并启动hadoop"></a>修改hosts映射并启动hadoop</h4><ul>
-<li>查看主机IP</li>
-<li><blockquote>
-<p>ifconfig</p>
-</blockquote>
-</li>
-<li>修改映射</li>
-<li><blockquote>
-<p>sudo vi /etc/hosts</p>
-</blockquote>
-</li>
-<li>将 <code>192.168.163.133 ylitech</code> 修改为 <code>主机IP ylitech</code></li>
-<li>直接输入 </li>
-<li><blockquote>
-<p><code>start-all.sh</code> </p>
-</blockquote>
-</li>
-<li> 启动Hadoop</li>
-</ul>
-<hr>
-<h4 id="HDFS设置文件上传"><a href="#HDFS设置文件上传" class="headerlink" title="HDFS设置文件上传"></a>HDFS设置文件上传</h4><p>本次需要的数据文件 —-&gt;<br>  <a target="_blank" rel="noopener" href="http://www.xzthking.top/medias/data_air.tar" download>点击下载</a></p>
-<hr>
-<ul>
-<li>先在hadoop创建文件夹</li>
-<li><blockquote>
-<p>hadoop dfs -mkdir /air</p>
-</blockquote>
-</li>
-<li>上传需要处理的数据文件文件(需要先将文件解压)(如果加载失败，使用绝对路径指引到data_air) </li>
-<li><blockquote>
-<p>hadoop dfs -put data_air /air</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h4 id="编译处理数据的jar包"><a href="#编译处理数据的jar包" class="headerlink" title="编译处理数据的jar包"></a>编译处理数据的jar包</h4><ul>
-<li>启动Eclipse</li>
-<li>导入Hadoop的 Maprduec，hdfs，common 的 jar包，包括每一个lib里面的jar包,防止出错</li>
-<li>路径如下 <code>右键文件夹选择最后 Properties</code> –&gt; <code>Java Build Path</code> –&gt; <code>Libraries</code> –&gt; <code>Add External JARS..</code> –&gt; <code>File System</code> –&gt; <code>usr/local/hadoop/share/hadoop  里面的common，hdfs，mapreduce 的全部jar包</code><blockquote>
-<p>代码如下</p>
-</blockquote>
-<h5 id="air-class"><a href="#air-class" class="headerlink" title="air.class"></a>air.class</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">import org.apache.hadoop.conf.Configuration;</span><br><span class="line">import org.apache.hadoop.fs.Path;</span><br><span class="line">import org.apache.hadoop.io.LongWritable;</span><br><span class="line">import org.apache.hadoop.io.Text;</span><br><span class="line">import org.apache.hadoop.mapreduce.Job;</span><br><span class="line">import org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line">import org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line">import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line">import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"></span><br><span class="line">public class air &#123;</span><br><span class="line"></span><br><span class="line">	public static class DCMapper extends Mapper&lt;LongWritable, Text, Text, LongWritable&gt;&#123;</span><br><span class="line"></span><br><span class="line">		@Override</span><br><span class="line">		protected void map(LongWritable key, Text value, Context context)</span><br><span class="line">				throws IOException, InterruptedException &#123;</span><br><span class="line">			//accept </span><br><span class="line">			String line = value.toString();</span><br><span class="line">			//split</span><br><span class="line">			</span><br><span class="line">			String[] fields = line.split(&quot;,&quot;);</span><br><span class="line">			String date = fields[1];</span><br><span class="line">			String[] t1 =date.split(&quot;-&quot;);</span><br><span class="line">			String year = t1[0];</span><br><span class="line">			String area = fields[0];</span><br><span class="line">			String assess = fields[2];</span><br><span class="line">			String newkey = year+&quot; &quot;+area+&quot; &quot;+assess;			</span><br><span class="line">			//send</span><br><span class="line">			context.write(new Text(newkey), new LongWritable(1));</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static class DCReducer extends Reducer&lt;Text, LongWritable, Text, LongWritable&gt;&#123;</span><br><span class="line"></span><br><span class="line">		@Override</span><br><span class="line">		protected void reduce(Text key, Iterable&lt;LongWritable&gt; values, Context context)</span><br><span class="line">				throws IOException, InterruptedException &#123;</span><br><span class="line">			</span><br><span class="line">			long sum = 0;</span><br><span class="line">			for(LongWritable bean : values)&#123;</span><br><span class="line">				long a = bean.get();</span><br><span class="line">				sum =sum +a;	</span><br><span class="line">			&#125;</span><br><span class="line">			context.write(key, new LongWritable(sum));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		Configuration conf = new Configuration();</span><br><span class="line">		Job job = Job.getInstance(conf);</span><br><span class="line">		</span><br><span class="line">		job.setJarByClass(raindata.class);</span><br><span class="line">		</span><br><span class="line">		job.setMapperClass(DCMapper.class);</span><br><span class="line">		job.setMapOutputKeyClass(Text.class);</span><br><span class="line">		job.setMapOutputValueClass(LongWritable.class);</span><br><span class="line">		</span><br><span class="line">		FileInputFormat.setInputPaths(job, new Path(args[0]));</span><br><span class="line">		</span><br><span class="line">		job.setReducerClass(DCReducer.class);</span><br><span class="line">		job.setOutputKeyClass(Text.class);</span><br><span class="line">		job.setOutputValueClass(LongWritable.class);</span><br><span class="line">		FileOutputFormat.setOutputPath(job, new Path(args[1]));</span><br><span class="line">	</span><br><span class="line">		job.setNumReduceTasks(1);</span><br><span class="line">		job.waitForCompletion(true);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">解压</span></span><br><span class="line">tar -zxvf kafka_2.11-2.0.0.tgz -C /usr/local/src/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">改名字</span></span><br><span class="line">mv kafka_2.11-2.0.0 kafka</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">配置环境变量</span></span><br><span class="line">vi /root/.bash_profile</span><br><span class="line"></span><br><span class="line">export ZOOKEEPER_HOME=/usr/local/src/kafka</span><br><span class="line">export PATH=$PATH:$ZOOKEEPER_HOME/bin</span><br><span class="line">export KAFKA_HOME=/usr/local/src/kafka</span><br><span class="line">export PATH=$PATH:$KAFKA_HOME/bin</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">环境变量生效</span></span><br><span class="line">source /root/.bash_profile</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<h3 id="raindata-class"><a href="#raindata-class" class="headerlink" title="raindata.class"></a>raindata.class</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">import org.apache.hadoop.conf.Configuration;</span><br><span class="line">import org.apache.hadoop.fs.Path;</span><br><span class="line">import org.apache.hadoop.io.LongWritable;</span><br><span class="line">import org.apache.hadoop.io.Text;</span><br><span class="line">import org.apache.hadoop.mapreduce.Job;</span><br><span class="line">import org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line">import org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line">import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line">import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"></span><br><span class="line">public class raindata &#123;</span><br><span class="line"></span><br><span class="line">    public static class DCMapper extends Mapper&lt;LongWritable, Text, Text, Text&gt;&#123;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        protected void map(LongWritable key, Text value, Context context)</span><br><span class="line">                throws IOException, InterruptedException &#123;</span><br><span class="line">            //接收数据</span><br><span class="line">            String line = value.toString();</span><br><span class="line">            //以空格为分隔符切割数据</span><br><span class="line">            String[] fields = line.split(&quot; &quot;);</span><br><span class="line">            //point为监测点</span><br><span class="line">            String point = fields[1];</span><br><span class="line">            //date_rain为RTime的年月日和RCount</span><br><span class="line">            String date_rain = fields[2]+&quot; &quot;+fields[3]+&quot; &quot;+fields[4]+&quot; &quot;+fields[6];</span><br><span class="line">            //point作为key，date_rain作为value进行传输</span><br><span class="line">            context.write(new Text(point), new Text(date_rain));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static class DCReducer extends Reducer&lt;Text, Text, Text, Text&gt;&#123;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        protected void reduce(Text key, Iterable&lt;Text&gt; values, Context context)</span><br><span class="line">                throws IOException, InterruptedException &#123;</span><br><span class="line">            double rain_max = 0;</span><br><span class="line">            String output = &quot;&quot;;</span><br><span class="line">            //将date_rain里面的RCount抽取出来，判断得到最大值</span><br><span class="line">            for(Text bean : values)&#123;</span><br><span class="line">                String date_rain = bean.toString();</span><br><span class="line">                String[] fields = date_rain.split(&quot; &quot;);</span><br><span class="line">                double rain = Double.parseDouble(fields[3]);</span><br><span class="line">                if (rain&gt;rain_max)</span><br><span class="line"></span><br><span class="line">                &#123;</span><br><span class="line">                    rain_max = rain;</span><br><span class="line">                    //output位RTime的年月日和RCount的最大值</span><br><span class="line">                    output = fields[0]+&quot;/&quot;+fields[1]+&quot;/&quot;+fields[2]+&quot; &quot;+rain_max;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            //输出map中的point和output</span><br><span class="line">            context.write(key, new Text(output));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        Configuration conf = new Configuration();</span><br><span class="line">        Job job = Job.getInstance(conf);</span><br><span class="line"></span><br><span class="line">        job.setJarByClass(raindata.class);</span><br><span class="line"></span><br><span class="line">        job.setMapperClass(DCMapper.class);</span><br><span class="line">        job.setMapOutputKeyClass(Text.class);</span><br><span class="line">        job.setMapOutputValueClass(Text.class);</span><br><span class="line">        FileInputFormat.setInputPaths(job, new Path(args[0]));</span><br><span class="line"></span><br><span class="line">        job.setReducerClass(DCReducer.class);</span><br><span class="line">        job.setOutputKeyClass(Text.class);</span><br><span class="line">        job.setOutputValueClass(Text.class);</span><br><span class="line">        FileOutputFormat.setOutputPath(job, new Path(args[1]));</span><br><span class="line"></span><br><span class="line">        job.waitForCompletion(true);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>右键文件夹选择 <code>Export</code> –&gt; <code>Java</code> –&gt; <code>JAR file</code> –&gt; <code>JAR file选择路径为 /home/hadoop/Desktop/ylitech_air.jar</code> </li>
-<li>将代码打包成 <code>ylitech_air.jar</code></li>
-</ul>
-<hr>
-<h4 id="运行程序实现数据处理"><a href="#运行程序实现数据处理" class="headerlink" title="运行程序实现数据处理"></a>运行程序实现数据处理</h4><ul>
-<li><p>在<code>ylitech_air.jar</code>包所在的目录打开命令符界面</p>
-</li>
-<li><blockquote>
-<p>hadoop jar  ylitech_air.jar  ylitech_air/air /air/data_air/ /air/air_out/</p>
-</blockquote>
-</li>
-<li><p>代码解释</p>
-</li>
-<li><blockquote>
-<p>hadoop jar &lt;jar包&gt; &lt;运行的main&gt; &lt;hadoop输入地址&gt; &lt;hadoop输出地址&gt; </p>
-</blockquote>
-</li>
-<li><p>查看处理后输出的数据</p>
-</li>
-<li><blockquote>
-<p>hadoop fs -text /air/air_out/part-r-00000</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>也可以在ylitech:50070 上下载并查看</p>
-</blockquote>
-</li>
-</ul>
+<h3 id="单节点"><a href="#单节点" class="headerlink" title="单节点"></a>单节点</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 修改kafka配置文件</span></span><br><span class="line">cd kafka/config/</span><br><span class="line">vi server.properties</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在broker.id=0后面添加</span></span><br><span class="line">port=9092</span><br><span class="line"><span class="meta">#</span><span class="bash">服务器IP地址，修改为自己的服务器IP</span></span><br><span class="line">host.name=127.0.0.1</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">修改</span></span><br><span class="line">zookeeper.connect=master:2181</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">##########################################################################################</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 开启服务</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> &amp; 为后台启动</span></span><br><span class="line"><span class="meta">#</span><span class="bash">启动zookeeper服务</span></span><br><span class="line">zookeeper-server-start.sh config/zookeeper.properties &amp;</span><br><span class="line"><span class="meta">#</span><span class="bash">启动kafka</span></span><br><span class="line">kafka-server-start.sh config/server.properties &amp;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">关闭</span></span><br><span class="line">zookeeper-server-stop.sh config/zookeeper.properties &amp;</span><br><span class="line">kafka-server-stop.sh config/server.properties &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="kafka连接Flume"><a href="#kafka连接Flume" class="headerlink" title="kafka连接Flume"></a>kafka连接Flume</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">测试</span></span><br><span class="line"><span class="meta">#</span><span class="bash">创建一个demo主题 有一个分区和一个副本的队列</span></span><br><span class="line">kafka-topics.sh --create --zookeeper master:2181 --replication-factor 1 --partitions 1 --topic demo</span><br><span class="line"><span class="meta">#</span><span class="bash">检查队列是否创建成功</span></span><br><span class="line">kafka-topics.sh --zookeeper master:2181 --list</span><br><span class="line"><span class="meta">#</span><span class="bash">向你的消息队列中生产消息</span></span><br><span class="line">kafka-console-producer.sh --broker-list master:9092 --topic demo</span><br><span class="line"><span class="meta">#</span><span class="bash">查询topic内容：消费消息</span></span><br><span class="line">kafka-console-consumer.sh --bootstrap-server master:9092 --from-beginning --topic demo</span><br><span class="line">    #--from-beginning 表示从头开始看</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置server.properties</span></span><br><span class="line">delete.topic.enable=true</span><br><span class="line">    </span><br><span class="line"><span class="meta">#</span><span class="bash">删除指令</span></span><br><span class="line">kafka-topics.sh --delete --zookeeper master:2181 --topic demo</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="flume连接导入"><a href="#flume连接导入" class="headerlink" title="flume连接导入"></a>flume连接导入</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> flume配置文件如下：</span></span><br><span class="line"></span><br><span class="line">a5.channels=c5</span><br><span class="line">a5.sources=s5</span><br><span class="line">a5.sinks=k5 </span><br><span class="line"></span><br><span class="line">a5.sources.s5.type=spooldir</span><br><span class="line">a5.sources.s5.spoolDir=/usr/local/src/flume/datas</span><br><span class="line">a5.sources.s5.interceptors=head_filter</span><br><span class="line">a5.sources.s5.interceptors.head_filter.type=regex_filter</span><br><span class="line">a5.sources.s5.interceptors.head_filter.regex=^event_id.*</span><br><span class="line">a5.sources.s5.interceptors.head_filter.excludeEvents=true</span><br><span class="line"></span><br><span class="line">a5.sinks.k5.type=org.apache.flume.sink.kafka.KafkaSink</span><br><span class="line">a5.sinks.k5.kafka.bootstrap.servers=master:9092</span><br><span class="line">a5.sinks.k5.kafka.topic=msg_event</span><br><span class="line"></span><br><span class="line">a5.channels.c5.type=memory</span><br><span class="line">a5.channels.c5.capacity=10000</span><br><span class="line">a5.channels.c5.transactionCapacity=10000</span><br><span class="line"></span><br><span class="line">a5.sinks.k5.channel=c5</span><br><span class="line">a5.sources.s5.channels=c5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">建主题 一个副本 一个分区</span></span><br><span class="line">kafka-topics.sh --create --zookeeper master:2181 --topic msgEvent --replication-factor 1 --partitions 1</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">建消费者</span></span><br><span class="line">kafka-console-consumer.sh --bootstrap-server master:9092 --from-beginning --topic msgEvent</span><br><span class="line"></span><br><span class="line">运行flume</span><br><span class="line">bin/flume-ng agent -n a5 -c conf -f job/kafka.conf</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">按分区查看数据量</span></span><br><span class="line">kafka-run-class.sh kafka.tools.GetOffsetShell --topic msgEvent --time -1 --broker-list master:9092 --partitions 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
                 
             </div>
@@ -577,7 +519,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/06/02/air/">http://example.com/2021/06/02/air/</a>
+                    <a href="http://example.com/2021/11/11/Kafka%20%E5%9F%BA%E7%A1%80/">http://example.com/2021/11/11/Kafka%20%E5%9F%BA%E7%A1%80/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -615,8 +557,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hadoop-Linux-Java/">
-                                    <span class="chip bg-color">Hadoop Linux Java</span>
+                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%BD%AF%E4%BB%B6/">
+                                    <span class="chip bg-color">大数据软件</span>
                                 </a>
                             
                         </div>
@@ -792,13 +734,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/11/javaGUI-DEMO/">
+                <a href="/2021/12/05/%E5%B9%BF%E4%B8%9C%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E8%81%8C%E4%B8%9A%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B%20-%20%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E9%A1%B9%E7%9B%AE%E8%AF%95%E9%A2%98%EF%BC%88%E6%A0%B7%E9%A2%98%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="javaGUI-DEMO">
+                        <img src="/medias/featureimages/15.png" class="responsive-img" alt="广东省第二届职业技能大赛平台部署">
                         
-                        <span class="card-title">javaGUI-DEMO</span>
+                        <span class="card-title">广东省第二届职业技能大赛平台部署</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -809,7 +751,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-11
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-05
                         </span>
                         <span class="publish-author">
                             
@@ -822,8 +764,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JAVA/">
-                        <span class="chip bg-color">JAVA</span>
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AB%9E%E8%B5%9B/">
+                        <span class="chip bg-color">大数据竞赛</span>
                     </a>
                     
                 </div>
@@ -837,13 +779,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/01/CAShadoop/">
+                <a href="/2021/10/20/Docker%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2cloud-torrent/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.png" class="responsive-img" alt="大数据技术与应用比赛---Hadoop全分布部署">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Docker一键部署cloud-torrent">
                         
-                        <span class="card-title">大数据技术与应用比赛---Hadoop全分布部署</span>
+                        <span class="card-title">Docker一键部署cloud-torrent</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -854,7 +796,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-20
                             </span>
                         <span class="publish-author">
                             
@@ -867,8 +809,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hadoop-Linux-Java/">
-                        <span class="chip bg-color">Hadoop Linux Java</span>
+                    <a href="/tags/Docker-BT%E4%B8%8B%E8%BD%BD/">
+                        <span class="chip bg-color">Docker BT下载</span>
                     </a>
                     
                 </div>

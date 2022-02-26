@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="空气质量数据分析, XzthKing&#39;s Bolog">
+    <meta name="keywords" content="广东省第二届职业技能大赛平台部署, XzthKing&#39;s Bolog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>空气质量数据分析 | XzthKing&#39;s Bolog</title>
+    <title>广东省第二届职业技能大赛平台部署 | XzthKing&#39;s Bolog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">空气质量数据分析</h1>
+                    <h1 class="description center-align post-title">广东省第二届职业技能大赛平台部署</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hadoop-Linux-Java/">
-                                <span class="chip bg-color">Hadoop Linux Java</span>
+                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AB%9E%E8%B5%9B/">
+                                <span class="chip bg-color">大数据竞赛</span>
                             </a>
                         
                     </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-02
+                    2021-12-05
                 </div>
                 
 
@@ -468,89 +468,132 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="大数据综合实战-空气质量数据分析"><a href="#大数据综合实战-空气质量数据分析" class="headerlink" title="大数据综合实战-空气质量数据分析"></a>大数据综合实战-空气质量数据分析</h1><hr>
-<ul>
-<li>技术要求：掌握Hadoop基本使用，Linux基本使用。</li>
-<li>前提：在ylitech平台(学校平台)，如果是VM虚拟机需要先将eclipse安装并且配置hadoop。</li>
-<li>账号：hadoop 密码：123456</li>
-</ul>
-<hr>
-<h4 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h4><p>随着城市工业化的不断推进,城市空气污染越来越严重,至今已经变成了一个全球性的问题。并且空气污染是当前世界最主要的环境问题之一，对人类健康、工农业生产、动植物生长、社会财产和全球环境等都会造成很大的伤害。开展城市空气质量监测、数据分析能够全面地掌握城市空气污染源的排放数据和城市空气质量的等级分布状况,可以对影响城市空气质量的因素有着更加全面的了解和掌握,从而能够对城市空气污染进行有效的治理与预防。利用大数据数据分析技术,对空气质量数据进行了探索性分析。</p>
-<h2 id="实战部分"><a href="#实战部分" class="headerlink" title="实战部分"></a>实战部分</h2><h4 id="修改hosts映射并启动hadoop"><a href="#修改hosts映射并启动hadoop" class="headerlink" title="修改hosts映射并启动hadoop"></a>修改hosts映射并启动hadoop</h4><ul>
-<li>查看主机IP</li>
-<li><blockquote>
-<p>ifconfig</p>
-</blockquote>
-</li>
-<li>修改映射</li>
-<li><blockquote>
-<p>sudo vi /etc/hosts</p>
-</blockquote>
-</li>
-<li>将 <code>192.168.163.133 ylitech</code> 修改为 <code>主机IP ylitech</code></li>
-<li>直接输入 </li>
-<li><blockquote>
-<p><code>start-all.sh</code> </p>
-</blockquote>
-</li>
-<li> 启动Hadoop</li>
-</ul>
-<hr>
-<h4 id="HDFS设置文件上传"><a href="#HDFS设置文件上传" class="headerlink" title="HDFS设置文件上传"></a>HDFS设置文件上传</h4><p>本次需要的数据文件 —-&gt;<br>  <a target="_blank" rel="noopener" href="http://www.xzthking.top/medias/data_air.tar" download>点击下载</a></p>
-<hr>
-<ul>
-<li>先在hadoop创建文件夹</li>
-<li><blockquote>
-<p>hadoop dfs -mkdir /air</p>
-</blockquote>
-</li>
-<li>上传需要处理的数据文件文件(需要先将文件解压)(如果加载失败，使用绝对路径指引到data_air) </li>
-<li><blockquote>
-<p>hadoop dfs -put data_air /air</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h4 id="编译处理数据的jar包"><a href="#编译处理数据的jar包" class="headerlink" title="编译处理数据的jar包"></a>编译处理数据的jar包</h4><ul>
-<li>启动Eclipse</li>
-<li>导入Hadoop的 Maprduec，hdfs，common 的 jar包，包括每一个lib里面的jar包,防止出错</li>
-<li>路径如下 <code>右键文件夹选择最后 Properties</code> –&gt; <code>Java Build Path</code> –&gt; <code>Libraries</code> –&gt; <code>Add External JARS..</code> –&gt; <code>File System</code> –&gt; <code>usr/local/hadoop/share/hadoop  里面的common，hdfs，mapreduce 的全部jar包</code><blockquote>
-<p>代码如下</p>
-</blockquote>
-<h5 id="air-class"><a href="#air-class" class="headerlink" title="air.class"></a>air.class</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">import org.apache.hadoop.conf.Configuration;</span><br><span class="line">import org.apache.hadoop.fs.Path;</span><br><span class="line">import org.apache.hadoop.io.LongWritable;</span><br><span class="line">import org.apache.hadoop.io.Text;</span><br><span class="line">import org.apache.hadoop.mapreduce.Job;</span><br><span class="line">import org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line">import org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line">import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line">import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"></span><br><span class="line">public class air &#123;</span><br><span class="line"></span><br><span class="line">	public static class DCMapper extends Mapper&lt;LongWritable, Text, Text, LongWritable&gt;&#123;</span><br><span class="line"></span><br><span class="line">		@Override</span><br><span class="line">		protected void map(LongWritable key, Text value, Context context)</span><br><span class="line">				throws IOException, InterruptedException &#123;</span><br><span class="line">			//accept </span><br><span class="line">			String line = value.toString();</span><br><span class="line">			//split</span><br><span class="line">			</span><br><span class="line">			String[] fields = line.split(&quot;,&quot;);</span><br><span class="line">			String date = fields[1];</span><br><span class="line">			String[] t1 =date.split(&quot;-&quot;);</span><br><span class="line">			String year = t1[0];</span><br><span class="line">			String area = fields[0];</span><br><span class="line">			String assess = fields[2];</span><br><span class="line">			String newkey = year+&quot; &quot;+area+&quot; &quot;+assess;			</span><br><span class="line">			//send</span><br><span class="line">			context.write(new Text(newkey), new LongWritable(1));</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static class DCReducer extends Reducer&lt;Text, LongWritable, Text, LongWritable&gt;&#123;</span><br><span class="line"></span><br><span class="line">		@Override</span><br><span class="line">		protected void reduce(Text key, Iterable&lt;LongWritable&gt; values, Context context)</span><br><span class="line">				throws IOException, InterruptedException &#123;</span><br><span class="line">			</span><br><span class="line">			long sum = 0;</span><br><span class="line">			for(LongWritable bean : values)&#123;</span><br><span class="line">				long a = bean.get();</span><br><span class="line">				sum =sum +a;	</span><br><span class="line">			&#125;</span><br><span class="line">			context.write(key, new LongWritable(sum));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		Configuration conf = new Configuration();</span><br><span class="line">		Job job = Job.getInstance(conf);</span><br><span class="line">		</span><br><span class="line">		job.setJarByClass(raindata.class);</span><br><span class="line">		</span><br><span class="line">		job.setMapperClass(DCMapper.class);</span><br><span class="line">		job.setMapOutputKeyClass(Text.class);</span><br><span class="line">		job.setMapOutputValueClass(LongWritable.class);</span><br><span class="line">		</span><br><span class="line">		FileInputFormat.setInputPaths(job, new Path(args[0]));</span><br><span class="line">		</span><br><span class="line">		job.setReducerClass(DCReducer.class);</span><br><span class="line">		job.setOutputKeyClass(Text.class);</span><br><span class="line">		job.setOutputValueClass(LongWritable.class);</span><br><span class="line">		FileOutputFormat.setOutputPath(job, new Path(args[1]));</span><br><span class="line">	</span><br><span class="line">		job.setNumReduceTasks(1);</span><br><span class="line">		job.waitForCompletion(true);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                <h1 id="广东省第二届职业技能大赛-大数据技术应用项目试题（样题）"><a href="#广东省第二届职业技能大赛-大数据技术应用项目试题（样题）" class="headerlink" title="广东省第二届职业技能大赛 - 大数据技术应用项目试题（样题）"></a>广东省第二届职业技能大赛 - 大数据技术应用项目<strong>试题（样题）</strong></h1><h2 id="模块A：大数据平台及组件的部署管理（15分）"><a href="#模块A：大数据平台及组件的部署管理（15分）" class="headerlink" title="模块A：大数据平台及组件的部署管理（15分）"></a>模块A：大数据平台及组件的部署管理（15分）</h2><h3 id="任务一：Hadoop安装和部署"><a href="#任务一：Hadoop安装和部署" class="headerlink" title="任务一：Hadoop安装和部署"></a>任务一：Hadoop安装和部署</h3><p>本环节需要使用root用户完成相关配置，安装Hadoop运行环境。</p>
+<p><code>本文中的全部代码的 “ # ”注释全部不要敲进去，仅供参考</code>   </p>
+<p>考察结果：</p>
+<ol>
+<li><p>启动Hadoop服务，基于Linux Systemd或service的方式启动服务；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lib/systemd/system</span><br><span class="line">vi hadoop.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=hadoop</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking	# 以fork方式从父进程创建子进程</span><br><span class="line">ExecStart=/etc/local/src/hadoop-2.6.0/sbin/start-all.sh  # 启动目录</span><br><span class="line">ExecStop=/etc/local/src/hadoop-2.6.0/sbin/stop-all.sh</span><br><span class="line">PrivateTmp=true	 # 是否给服务分配独立的临时空间</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target	 # 当前 Unit 激活时（enable）符号链接目录</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod 754 hadoop.service #赋予权限</span><br><span class="line">   </span><br><span class="line">   service hadoop start #启动</span><br></pre></td></tr></table></figure>
+
 
 </li>
-</ul>
-<h3 id="raindata-class"><a href="#raindata-class" class="headerlink" title="raindata.class"></a>raindata.class</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">import org.apache.hadoop.conf.Configuration;</span><br><span class="line">import org.apache.hadoop.fs.Path;</span><br><span class="line">import org.apache.hadoop.io.LongWritable;</span><br><span class="line">import org.apache.hadoop.io.Text;</span><br><span class="line">import org.apache.hadoop.mapreduce.Job;</span><br><span class="line">import org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line">import org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line">import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line">import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"></span><br><span class="line">public class raindata &#123;</span><br><span class="line"></span><br><span class="line">    public static class DCMapper extends Mapper&lt;LongWritable, Text, Text, Text&gt;&#123;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        protected void map(LongWritable key, Text value, Context context)</span><br><span class="line">                throws IOException, InterruptedException &#123;</span><br><span class="line">            //接收数据</span><br><span class="line">            String line = value.toString();</span><br><span class="line">            //以空格为分隔符切割数据</span><br><span class="line">            String[] fields = line.split(&quot; &quot;);</span><br><span class="line">            //point为监测点</span><br><span class="line">            String point = fields[1];</span><br><span class="line">            //date_rain为RTime的年月日和RCount</span><br><span class="line">            String date_rain = fields[2]+&quot; &quot;+fields[3]+&quot; &quot;+fields[4]+&quot; &quot;+fields[6];</span><br><span class="line">            //point作为key，date_rain作为value进行传输</span><br><span class="line">            context.write(new Text(point), new Text(date_rain));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static class DCReducer extends Reducer&lt;Text, Text, Text, Text&gt;&#123;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        protected void reduce(Text key, Iterable&lt;Text&gt; values, Context context)</span><br><span class="line">                throws IOException, InterruptedException &#123;</span><br><span class="line">            double rain_max = 0;</span><br><span class="line">            String output = &quot;&quot;;</span><br><span class="line">            //将date_rain里面的RCount抽取出来，判断得到最大值</span><br><span class="line">            for(Text bean : values)&#123;</span><br><span class="line">                String date_rain = bean.toString();</span><br><span class="line">                String[] fields = date_rain.split(&quot; &quot;);</span><br><span class="line">                double rain = Double.parseDouble(fields[3]);</span><br><span class="line">                if (rain&gt;rain_max)</span><br><span class="line"></span><br><span class="line">                &#123;</span><br><span class="line">                    rain_max = rain;</span><br><span class="line">                    //output位RTime的年月日和RCount的最大值</span><br><span class="line">                    output = fields[0]+&quot;/&quot;+fields[1]+&quot;/&quot;+fields[2]+&quot; &quot;+rain_max;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            //输出map中的point和output</span><br><span class="line">            context.write(key, new Text(output));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        Configuration conf = new Configuration();</span><br><span class="line">        Job job = Job.getInstance(conf);</span><br><span class="line"></span><br><span class="line">        job.setJarByClass(raindata.class);</span><br><span class="line"></span><br><span class="line">        job.setMapperClass(DCMapper.class);</span><br><span class="line">        job.setMapOutputKeyClass(Text.class);</span><br><span class="line">        job.setMapOutputValueClass(Text.class);</span><br><span class="line">        FileInputFormat.setInputPaths(job, new Path(args[0]));</span><br><span class="line"></span><br><span class="line">        job.setReducerClass(DCReducer.class);</span><br><span class="line">        job.setOutputKeyClass(Text.class);</span><br><span class="line">        job.setOutputValueClass(Text.class);</span><br><span class="line">        FileOutputFormat.setOutputPath(job, new Path(args[1]));</span><br><span class="line"></span><br><span class="line">        job.waitForCompletion(true);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>右键文件夹选择 <code>Export</code> –&gt; <code>Java</code> –&gt; <code>JAR file</code> –&gt; <code>JAR file选择路径为 /home/hadoop/Desktop/ylitech_air.jar</code> </li>
-<li>将代码打包成 <code>ylitech_air.jar</code></li>
-</ul>
-<hr>
-<h4 id="运行程序实现数据处理"><a href="#运行程序实现数据处理" class="headerlink" title="运行程序实现数据处理"></a>运行程序实现数据处理</h4><ul>
-<li><p>在<code>ylitech_air.jar</code>包所在的目录打开命令符界面</p>
+<li><p>设置服务允许最大打开文件数超过20480；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/security/limits.conf</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在尾部添加</span></span><br><span class="line">* soft nofile 65536</span><br><span class="line">* hard nofile 65536</span><br><span class="line">* soft nproc  65536</span><br><span class="line">* hard nproc  65536</span><br></pre></td></tr></table></figure>
+
+
 </li>
-<li><blockquote>
-<p>hadoop jar  ylitech_air.jar  ylitech_air/air /air/data_air/ /air/air_out/</p>
-</blockquote>
+<li><p>将服务设置为跟随系统启动，重启后系统服务正常运行；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置开机启动</span></span><br><span class="line">systemctl enable hadoop.service   #关闭自启动：disable</span><br></pre></td></tr></table></figure>
+
+<p>![image-20211117162907968](广东省第二届职业技能大赛 - 大数据技术应用项目试题（样题）.assets/image-20211117162907968.png)</p>
 </li>
-<li><p>代码解释</p>
+<li><p>使用相关命令查看所有Hadoop进程状态以及检查允许最大打开文件数；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jps 		#查看hadoop进程</span><br><span class="line"></span><br><span class="line">ulimit -n 	#查看最大打开文件数</span><br></pre></td></tr></table></figure>
+
+<p>![image-20211117202004031](广东省第二届职业技能大赛 - 大数据技术应用项目试题（样题）.assets/image-20211117202004031.png)</p>
 </li>
-<li><blockquote>
-<p>hadoop jar &lt;jar包&gt; &lt;运行的main&gt; &lt;hadoop输入地址&gt; &lt;hadoop输出地址&gt; </p>
-</blockquote>
+</ol>
+<h3 id="任务二：Hive组件部署"><a href="#任务二：Hive组件部署" class="headerlink" title="任务二：Hive组件部署"></a>任务二：Hive组件部署</h3><p>本环节需要使用root用户完成相关配置，已安装Hadoop及需要配置前置环境。</p>
+<p>考察结果：</p>
+<ol>
+<li><p>启动Hive，检查是否安装成功；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive </span><br></pre></td></tr></table></figure>
+
 </li>
-<li><p>查看处理后输出的数据</p>
+</ol>
+<h3 id="任务三：Kafka组件部署"><a href="#任务三：Kafka组件部署" class="headerlink" title="任务三：Kafka组件部署"></a>任务三：Kafka组件部署</h3><p>本环节需要使用root用户完成相关配置，已安装Hadoop及需要配置前置环境。</p>
+<p>考察结果：</p>
+<ol>
+<li><p>启动Kafka，并将Kafka启动命令和输出结果前10行复制粘贴至报告中。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kafka-server-start.sh /etc/local/src/kafka/config/server.properties &gt; /etc/local/src/kafka/tmp/logs/logs &amp; </span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动线程并写入日志</span></span><br></pre></td></tr></table></figure>
+
+
+
 </li>
-<li><blockquote>
-<p>hadoop fs -text /air/air_out/part-r-00000</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>也可以在ylitech:50070 上下载并查看</p>
-</blockquote>
-</li>
-</ul>
+</ol>
+<h3 id="任务四：Mysql软件安装和部署"><a href="#任务四：Mysql软件安装和部署" class="headerlink" title="任务四：Mysql软件安装和部署"></a>任务四：Mysql软件安装和部署</h3><p>本环节需要使用root用户完成相关配置，安装Mysql，数据库基于UTF-8编码。 </p>
+<p>考察结果：</p>
+<ol>
+<li>启动Mysql，基于Linux Systemd或者service的启动方式，检查是否安装成功；</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysql #启动</span><br><span class="line">rpm -qa|grep mysql  # 查看mysql进程</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>设置服务允许打开的最大文件数为20480；</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在配置好   vi /etc/security/limits.conf  的前提下</span></span><br><span class="line">vi /etc/my.cnf  #修改my.cnf配置</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加在[mysqld]下</span></span><br><span class="line">open_files_limit = 20480</span><br><span class="line">innodb_open_files = 20480</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">vi /usr/lib/systemd/system/mysqld.service #修改</span><br><span class="line">LimitNOFILE = 20480</span><br><span class="line"></span><br><span class="line">systemctl daemon-reload;systemctl restart mysqld.service  #修改完毕后命令</span><br></pre></td></tr></table></figure>
+
+<p>![image-20211118194516211](广东省第二届职业技能大赛 - 大数据技术应用项目试题（样题）.assets/image-20211118194516211.png)</p>
+<ol start="3">
+<li>查询Mysql初始化动态密码，并登录Mysql修改密码；</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">grep &#x27;temporary password&#x27; /var/log/mysqld.log #查看初始密码</span><br><span class="line">mysql -uroot -p&quot;*********&quot; #登录</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密码</span></span><br><span class="line">FLUSH PRIVILEGES;    </span><br><span class="line">alter user &#x27;root&#x27;@&#x27;localhost&#x27; identified by &#x27;123456&#x27;;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li>基于密码登录Mysql，使用sql查询当前编码格式；</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf #设置编码格式</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">添加</span></span><br><span class="line">character_set_server=utf8</span><br><span class="line">init_connect=&#x27;SET NAMES utf8&#x27;</span><br><span class="line">skip-grant-tables</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql -uroot -p&quot;123456&quot;</span><br><span class="line">show variables like &#x27;character_set_database&#x27;;  </span><br></pre></td></tr></table></figure>
+
+<p>![image-20211118111404773](广东省第二届职业技能大赛 - 大数据技术应用项目试题（样题）.assets/image-20211118111404773.png)</p>
+<ol start="5">
+<li>基于Linux计划任务进行每日自动数据备份；</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/mysqlbackup # 1.创建备份文件</span><br><span class="line"></span><br><span class="line">vi /data/mysqlbackup/dbbackup.sh  # 编写备份脚本代码 </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-h后面改为自己的ip</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-u后面改为自己的数据库账号</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-p后面改为自己的数据库密码,有字符需要加<span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">demand_database改为你想要备份的数据库名称</span></span><br><span class="line">echo &quot;开始备份数据库&quot;;</span><br><span class="line"><span class="meta">#</span><span class="bash">导出所有数据库 username 替换为自己mysql登陆名，password123登陆密码</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># mysqldump -h106.14.XX.XXX -uusername -p&quot;password123&quot; --all-databases &gt; /data/mysqlbackup/databaseName`date +%Y-%m-%d_%H%M%S`.sql;</span></span></span><br><span class="line"><span class="meta"> </span></span><br><span class="line"><span class="meta">#</span><span class="bash">导出指定数据库并压缩</span></span><br><span class="line">mysqldump -h106.14.XX.XXX -uusername -p&quot;password123&quot;  demand_database| gzip &gt; /data/mysqlbackup/databaseName`date +%Y-%m-%d_%H%M%S`.sql.gz;</span><br><span class="line"> </span><br><span class="line"><span class="meta"> </span></span><br><span class="line"><span class="meta">#</span><span class="bash">删除3天前的备份文件</span></span><br><span class="line"> </span><br><span class="line">backupdir=/data/mysqlbackup</span><br><span class="line">db_name=databaseName</span><br><span class="line"> </span><br><span class="line">find $backupdir -name $db_name&quot;*.sql.gz&quot; -type f -mtime +3 -exec rm -rf &#123;&#125; \;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">echo &quot;备份完成&quot;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 775  /data/mysqlbackup/dbbackup.sh #添加权限</span><br><span class="line">/data/mysqlbackup/dbbackup.sh #执行脚本</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>将服务设置为跟随系统自动启动，重启后系统服务正常运行；</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable mysqld</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>使用相关命令检查进程状态以及允许打开的最大文件数；</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">netstat -na | grep 3306</span><br><span class="line"></span><br><span class="line">rpm -qa|grep mysql</span><br><span class="line"></span><br><span class="line">ulimit -n</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="任务五：Hive集成Mysql"><a href="#任务五：Hive集成Mysql" class="headerlink" title="任务五：Hive集成Mysql"></a>任务五：Hive集成Mysql</h3><p>本次竞赛将以mysql作为Hive的元数据库，本环节需要使用root用户完成相关配置，已经安装Mysql数据库、Hive等先决条件。</p>
+<p>考察结果：</p>
+<ol>
+<li>Mysql新增hive用户，新增contest数据库，并赋予hive访问contest数据库所有权限；sql命令复制粘贴至对应报告中；</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">&#x27;hive&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;hive&#x27;</span>; 	#创建用户hive</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> database contest;		#新增contest数据库</span><br><span class="line"></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">on</span> contest.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;hive&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;hive&#x27;</span>; # 创建hive用户,并授权</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flush privileges; #使生效</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li> Hive集成Mysql，并启动hive，启动结果截图并粘贴至对应报告中；</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bin<span class="operator">/</span>hiveserver2</span><br><span class="line">bin<span class="operator">/</span>beeline</span><br><span class="line"><span class="operator">!</span><span class="keyword">connect</span> jdbc:mysql:<span class="operator">/</span><span class="operator">/</span>localhost:<span class="number">3306</span></span><br></pre></td></tr></table></figure>
+
+<p>![image-20211118133358855](广东省第二届职业技能大赛 - 大数据技术应用项目试题（样题）.assets/image-20211118133358855.png)</p>
+<ol start="3">
+<li>使用cat命令显示配置文件信息，截图并粘贴至对应报告中;</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/local/src/hive/conf/hive-site.xml</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;hive.metastore.schema.verification&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;jdbc:mysql://192.168.87.148:3306/hive?createDatabaseIfNotEx</span><br><span class="line">ist=true&amp;amp;useSSL=false&lt;/value&gt;     </span><br><span class="line">                &lt;!-- 这里自己搓自己的mysql的ip地址 --&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;javax.jdo.option.ConnectionUserName&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;root&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;javax.jdo.option.ConnectionPassword&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;123456&lt;/value&gt;</span><br><span class="line">                &lt;!-- 这里搓自己的mysql账号和密码 --&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li>Hive新增表格hive_to_mysql，可以通过命令行登录mysql命令行看到，截图并分别粘贴至对应报告中;</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> hive_to_mysql <span class="keyword">LIKE</span> HIVE_LOCKS ;   #通过复制表的方法增加hive表hive_to_mysql</span><br><span class="line"># 在mysql</span><br><span class="line">use hive;</span><br><span class="line"><span class="keyword">show</span> tables;</span><br></pre></td></tr></table></figure>
+
+<p>![image-20211118160735146](广东省第二届职业技能大赛 - 大数据技术应用项目试题（样题）.assets/image-20211118160735146.png)</p>
 
                 
             </div>
@@ -577,7 +620,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/06/02/air/">http://example.com/2021/06/02/air/</a>
+                    <a href="http://example.com/2021/12/05/%E5%B9%BF%E4%B8%9C%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E8%81%8C%E4%B8%9A%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B%20-%20%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E9%A1%B9%E7%9B%AE%E8%AF%95%E9%A2%98%EF%BC%88%E6%A0%B7%E9%A2%98%EF%BC%89/">http://example.com/2021/12/05/%E5%B9%BF%E4%B8%9C%E7%9C%81%E7%AC%AC%E4%BA%8C%E5%B1%8A%E8%81%8C%E4%B8%9A%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B%20-%20%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E9%A1%B9%E7%9B%AE%E8%AF%95%E9%A2%98%EF%BC%88%E6%A0%B7%E9%A2%98%EF%BC%89/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -615,8 +658,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hadoop-Linux-Java/">
-                                    <span class="chip bg-color">Hadoop Linux Java</span>
+                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AB%9E%E8%B5%9B/">
+                                    <span class="chip bg-color">大数据竞赛</span>
                                 </a>
                             
                         </div>
@@ -792,13 +835,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/11/javaGUI-DEMO/">
+                <a href="/2021/12/22/redis%EF%BC%881%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="javaGUI-DEMO">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Redis学习笔记-one">
                         
-                        <span class="card-title">javaGUI-DEMO</span>
+                        <span class="card-title">Redis学习笔记-one</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -809,7 +852,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-11
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-22
                         </span>
                         <span class="publish-author">
                             
@@ -822,8 +865,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JAVA/">
-                        <span class="chip bg-color">JAVA</span>
+                    <a href="/tags/Redis-%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">Redis 数据库</span>
                     </a>
                     
                 </div>
@@ -837,13 +880,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/01/CAShadoop/">
+                <a href="/2021/11/11/Kafka%20%E5%9F%BA%E7%A1%80/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.png" class="responsive-img" alt="大数据技术与应用比赛---Hadoop全分布部署">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Kafka基础">
                         
-                        <span class="card-title">大数据技术与应用比赛---Hadoop全分布部署</span>
+                        <span class="card-title">Kafka基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -854,7 +897,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
                             </span>
                         <span class="publish-author">
                             
@@ -867,8 +910,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hadoop-Linux-Java/">
-                        <span class="chip bg-color">Hadoop Linux Java</span>
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%BD%AF%E4%BB%B6/">
+                        <span class="chip bg-color">大数据软件</span>
                     </a>
                     
                 </div>
